@@ -26,10 +26,10 @@ def submit_round1():
         return jsonify({"error": "invalid data"}), 400
 
     supabase.table("round1_scores").upsert({
-        "user_id": data["user_id"],
-        "score": int(data["score"]),
-        "updated_at": datetime.utcnow().isoformat()
-    }).execute()
+    "user_id": data["user_id"],
+    "score": int(data["score"])
+}).execute()
+
 
     return jsonify({"status": "saved"})
 
